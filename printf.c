@@ -32,6 +32,7 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					/* Function to handle chars */
+					
 					break;
 				case 's':
 					break;
