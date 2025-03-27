@@ -1,57 +1,72 @@
-#include "main.h"
 #include <stdarg.h>
-#include <string.h>
 #include <stdlib.h>
 
+/**
+ * _printf - produces output according to a format
+ * @format: format string containing the directives
+ *
+ * Return: number of characters printed
+ */
 int _printf(const char *format, ...)
 {
+	/* TODO: 
+	 * - Missing cases.
+	 * - Make it betty compliant.
+	 * - Implement struct function pointer to handle variadic arguments.
+	 * */
 	va_list args;
-	unsigned int str_size = 0;
-	int i = 0; /* loop counter  */
-	char arg_ch /* argument holder for char case  */
+	int i = 0; /* loop counter */
+	int acc = 0; /* accumulator for each printed character */
+	char c; /* char holder for the char case */
+	char *str; /* string holder for the string case */
 
 	if (!format)
 		return (EXIT_FAILURE);
 	va_start(args, format);
-	/* Traversing @format till a specifier is found, if nothing is found,
-	 * increment 'str_size' */
-	for(; i < strlen(format); i++)
+
+	while (format[i])
 	{
 		if (format[i] == '%')
 		{
 			i++;
-			/* Increment 'i' to the adjacent index, if '%' is
-			 * followed up by any of the specifiers, call a function
-			 * to handle each case.
-			 * WHERE: c = char(int).
-			 * 	  s = char *.
-			 * 	  i = int.
-			 * 	  f = float.
-			 * 	  d = double.
-			 * */
 			switch (format[i])
 			{
-				case 'c':
-					/* handle chars case */
-					chr = va_arg(args, int);
-					_putchar(chr);
+				case 'c': /* chars case */
+				{
+					c = va_arg(args, int);
+					acc += _putchar(c);
 					break;
-				case 's':
+				}
+				case 's': /* string case */
+				{
+					str = va_arg(args, char *);
+					while (*str)
+						acc += _putchar(*str++);
 					break;
-				case 'i':
-				       	/* MIAMI */
+				}
+				case 'i': /* integer case */
+				{
+					int num = va_arg(args, int);
+					acc += print_number(num);
 					break;
-				case 'd':
+				}
+				case 'd': /* double case */
 					break;
-				case 'f':
+				case 'f': /* float case */
+					break;
+				case '%': /* if what follows is another '%' case */
+					acc += _putchar('%');
 					break;
 				default:
-					str_size++;
-					/* no valid format is found.
-					 * increment 'str_size' and print
-					 * the '%' + char */
+					/* if no viable specifier is found, print '%' and the next character */
+					acc += _putchar('%');
+					acc += _putchar(format[i]);
 			}
 		}
+		else /* if no '%' if found, just print the current character. */
+			acc += _putchar(format[i]);
+		i++;
 	}
-	return (EXIT_SUCCESS) /* placeholder */
+	va_end(args);
+	return (acc);
 }
