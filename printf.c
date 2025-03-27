@@ -9,7 +9,7 @@
  */
 int _printf(const char *format, ...)
 {
-	/* TODO: 
+	/* TODO:
 	 * - Missing cases.
 	 * - Make it betty compliant.
 	 * - Implement struct function pointer to handle variadic arguments.
@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 				case 'i': /* integer case */
 				{
 					int num = va_arg(args, int);
-					acc += print_number(num);
+					acc += _print_number(num);
 					break;
 				}
 				case 'd': /* double case */

@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1743015234 source:/home/gabriolo/holbertonschool-printf/printf_holberton/Betty/tests/doc/doc0.c
+
+1743015234 source:/home/gabriolo/holbertonschool-printf/printf_holberton/Betty/tests/doc/doc1.c
+
+1743015234 source:/home/gabriolo/holbertonschool-printf/printf_holberton/Betty/tests/doc/doc2.c
+
+1743015234 source:/home/gabriolo/holbertonschool-printf/printf_holberton/Betty/tests/doc/doc3.c
+
+1743116493 source:/home/gabriolo/holbertonschool-printf/printf_holberton/printf.c
+	<stdarg.h>
+	<stdlib.h>
+
+1743118497 source:/home/gabriolo/holbertonschool-printf/printf_holberton/test.c
+	<limits.h>
+	<stdio.h>
+	"main.h"
+
+1743116493 /home/gabriolo/holbertonschool-printf/printf_holberton/main.h
+
