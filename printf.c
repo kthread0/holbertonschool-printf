@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdarg.h>
 #include <stdlib.h>
 
@@ -47,7 +48,7 @@ int _printf(const char *format, ...)
 				case 'i': /* integer case */
 				{
 					int num = va_arg(args, int);
-					acc += print_number(num);
+					acc += _print_integers(num);
 					break;
 				}
 				case 'd': /* double case */

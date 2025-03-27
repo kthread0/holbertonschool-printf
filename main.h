@@ -3,5 +3,6 @@
 
 int _printf(const char *, ...);
 int _putchar(char);
+int _print_integers(int);
 
 #endif
