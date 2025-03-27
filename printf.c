@@ -7,7 +7,8 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	unsigned int str_size = 0;
-	int i = 0;
+	int i = 0; /* loop counter  */
+	char arg_ch /* argument holder for char case  */
 
 	if (!format)
 		return (EXIT_FAILURE);
@@ -31,8 +32,9 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'c':
-					/* Function to handle chars */
-					
+					/* handle chars case */
+					chr = va_arg(args, int);
+					_putchar(chr);
 					break;
 				case 's':
 					break;
