@@ -39,19 +39,19 @@ int _printf(const char *format, ...)
 				case 's': /* string case */
                     _print_string(va_arg(args, char *));
 					break;
-//				case 'i': /* integer case */
-//				{
-//					int num = va_arg(args, int);
-//					acc += _print_number(num);
-//					break;
-//				}
+				case 'i': /* integer case */
+				{
+					int num = va_arg(args, int);
+					acc += _print_int(num);
+					break;
+				}
 //				case 'd': /* double case */
 //					break;
 //				case 'f': /* float case */
 //					break;
-//				case '%': /* if what follows is another '%' case */
-//					acc += _putchar('%');
-//					break;
+				case '%': /* if what follows is another '%' case */
+					acc += _putchar('%');
+					break;
 				default:
 					/* if no viable specifier is found, print '%' and the next character */
 					acc += _putchar('%');
