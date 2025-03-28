@@ -37,26 +37,26 @@ int _printf(const char *format, ...)
 					acc += _putchar(c);
 					break;
 				}
-				case 's': /* string case */
-				{
-					str = va_arg(args, char *);
-					while (*str)
-						acc += _putchar(*str++);
-					break;
-				}
-				case 'i': /* integer case */
-				{
-					int num = va_arg(args, int);
-					acc += _print_number(num);
-					break;
-				}
-				case 'd': /* double case */
-					break;
-				case 'f': /* float case */
-					break;
-				case '%': /* if what follows is another '%' case */
-					acc += _putchar('%');
-					break;
+//				case 's': /* string case */
+//				{
+//					str = va_arg(args, char *);
+//					while (*str)
+//						acc += _putchar(*str++);
+//					break;
+//				}
+//				case 'i': /* integer case */
+//				{
+//					int num = va_arg(args, int);
+//					acc += _print_number(num);
+//					break;
+//				}
+//				case 'd': /* double case */
+//					break;
+//				case 'f': /* float case */
+//					break;
+//				case '%': /* if what follows is another '%' case */
+//					acc += _putchar('%');
+//					break;
 				default:
 					/* if no viable specifier is found, print '%' and the next character */
 					acc += _putchar('%');
