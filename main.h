@@ -3,5 +3,7 @@
 
 int _printf(const char *, ...);
 int _putchar(char);
+int _print_int(int);
+int _strlen(char *);
 
 #endif
