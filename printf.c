@@ -12,13 +12,12 @@ int _printf(const char *format, ...)
 	/* TODO:
 	 * - Missing cases.
 	 * - Make it betty compliant.
-	 * - Implement struct function pointer to handle variadic arguments.
+	 * - Implement struct function pointer to handle variadic arguments. (For advanced tasks).
 	 * */
 	va_list args;
 	int i = 0; /* loop counter */
 	int acc = 0; /* accumulator for each printed character */
 	char c; /* char holder for the char case */
-	char *str; /* string holder for the string case */
 
 	if (!format)
 		return (EXIT_FAILURE);
@@ -38,12 +37,8 @@ int _printf(const char *format, ...)
 					break;
 				}
 				case 's': /* string case */
-				{
-					str = va_arg(args, char *);
-					while (*str)
-						acc += _putchar(*str++);
+                    _print_string(va_arg(args, char *));
 					break;
-				}
 //				case 'i': /* integer case */
 //				{
 //					int num = va_arg(args, int);

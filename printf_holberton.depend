@@ -7,7 +7,7 @@
 
 1743015234 source:/home/gabriolo/holbertonschool-printf/printf_holberton/Betty/tests/doc/doc3.c
 
-1743186843 source:/home/gabriolo/holbertonschool-printf/printf_holberton/printf.c
+1743187396 source:/home/gabriolo/holbertonschool-printf/printf_holberton/printf.c
 	<stdarg.h>
 	<stdlib.h>
 	"main.h"
@@ -17,7 +17,7 @@
 	<stdio.h>
 	"main.h"
 
-1743171088 /home/gabriolo/holbertonschool-printf/printf_holberton/main.h
+1743187371 /home/gabriolo/holbertonschool-printf/printf_holberton/main.h
 
 1743186856 source:/home/gabriolo/holbertonschool-printf/printf_holberton/putchar.c
 	<unistd.h>
@@ -30,4 +30,8 @@
 1743171073 source:/home/gabriolo/holbertonschool-printf/printf_holberton/strlen.c
 	"main.h"
 	<stdlib.h>
+
+1743187350 source:/home/gabriolo/holbertonschool-printf/printf_holberton/print_string.c
+	<stdio.h>
+	"main.h"
 
