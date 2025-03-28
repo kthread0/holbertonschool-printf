@@ -1,6 +1,6 @@
 #include <stdarg.h>
 #include <stdlib.h>
-
+#include "main.h"
 /**
  * _printf - produces output according to a format
  * @format: format string containing the directives
@@ -37,13 +37,13 @@ int _printf(const char *format, ...)
 					acc += _putchar(c);
 					break;
 				}
-//				case 's': /* string case */
-//				{
-//					str = va_arg(args, char *);
-//					while (*str)
-//						acc += _putchar(*str++);
-//					break;
-//				}
+				case 's': /* string case */
+				{
+					str = va_arg(args, char *);
+					while (*str)
+						acc += _putchar(*str++);
+					break;
+				}
 //				case 'i': /* integer case */
 //				{
 //					int num = va_arg(args, int);
