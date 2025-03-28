@@ -37,6 +37,9 @@
 		<Unit filename="print_int.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="print_string.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="printf.c">
 			<Option compilerVar="CC" />
 		</Unit>
