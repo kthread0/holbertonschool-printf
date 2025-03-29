@@ -1,23 +1,21 @@
 #include "main.h"
+#include <stddef.h>
 
-int _print_integers(int num)
-{
-	int i = 0;
-	char *str = NULL;
+int _print_integers(int num) {
+  int i = 0;
+  char *str = NULL;
 
-	while(num >= 0)
-	{
-		str[i] = (num % 10) + '0';
-		num = num / 10;
-		i++;
-	}
+  while (num >= 0) {
+    str[i] = (num % 10) + '0';
+    num = num / 10;
+    i++;
+  }
 
-	i = 0;
+  i = 0;
 
-	while(str)
-	{
-		_putchar(str[i]);			
-	}
+  while (str) {
+    _putchar(str[i]);
+  }
 
-	return (num);
+  return (num);
 }
