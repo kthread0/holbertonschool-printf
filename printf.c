@@ -32,12 +32,22 @@ int _printf(const char *format, ...)
                     _print_string(va_arg(args, char *));
 					break;
 				case 'i': /* integer case */
+<<<<<<< HEAD
 					int num = va_arg(args, int);
 					acc += _print_int(num);
 					break;
 				case 'l': /* longs case */
                     /* call function for long format specifiers. */
 					break;
+=======
+				{
+					int num = va_arg(args, int);
+					acc += _print_int(num);
+					break;
+				}
+//				case 'd': /* double case */
+//					break;
+>>>>>>> af139295cf490516e95d3c4a61d3d0b232caa858
 //				case 'f': /* float case */
 //					break;
 				case '%': /* if what follows is another '%' case */

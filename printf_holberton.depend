@@ -7,12 +7,20 @@
 
 1743015234 source:/home/gabriolo/holbertonschool-printf/printf_holberton/Betty/tests/doc/doc3.c
 
+<<<<<<< HEAD
 1743196665 source:/home/gabriolo/holbertonschool-printf/printf_holberton/printf.c
+=======
+1743189085 source:/home/gabriolo/holbertonschool-printf/printf_holberton/printf.c
+>>>>>>> af139295cf490516e95d3c4a61d3d0b232caa858
 	<stdarg.h>
 	<stdlib.h>
 	"main.h"
 
+<<<<<<< HEAD
 1743195373 source:/home/gabriolo/holbertonschool-printf/printf_holberton/test.c
+=======
+1743189132 source:/home/gabriolo/holbertonschool-printf/printf_holberton/test.c
+>>>>>>> af139295cf490516e95d3c4a61d3d0b232caa858
 	<limits.h>
 	<stdio.h>
 	"main.h"
@@ -23,7 +31,11 @@
 	<unistd.h>
 	"main.h"
 
+<<<<<<< HEAD
 1743195110 source:/home/gabriolo/holbertonschool-printf/printf_holberton/print_int.c
+=======
+1743194985 source:/home/gabriolo/holbertonschool-printf/printf_holberton/print_int.c
+>>>>>>> af139295cf490516e95d3c4a61d3d0b232caa858
 	"main.h"
 	<stdio.h>
 	<stdlib.h>
