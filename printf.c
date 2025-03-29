@@ -9,11 +9,6 @@
  */
 int _printf(const char *format, ...)
 {
-	/* TODO:
-	 * - Missing cases.
-	 * - Make it betty compliant.
-	 * - Implement struct function pointer to handle variadic arguments. (For advanced tasks).
-	 * */
 	va_list args;
 	int i = 0; /* loop counter */
 	int acc = 0; /* accumulator for each printed character */
@@ -22,8 +17,7 @@ int _printf(const char *format, ...)
 	if (!format)
 		return (EXIT_FAILURE);
 	va_start(args, format);
-
-	while (format[i])
+    while (format[i])
 	{
 		if (format[i] == '%')
 		{
@@ -31,22 +25,19 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'c': /* chars case */
-				{
 					c = va_arg(args, int);
 					acc += _putchar(c);
 					break;
-				}
 				case 's': /* string case */
                     _print_string(va_arg(args, char *));
 					break;
 				case 'i': /* integer case */
-				{
 					int num = va_arg(args, int);
 					acc += _print_int(num);
 					break;
-				}
-//				case 'd': /* double case */
-//					break;
+				case 'l': /* longs case */
+                    /* call function for long format specifiers. */
+					break;
 //				case 'f': /* float case */
 //					break;
 				case '%': /* if what follows is another '%' case */
