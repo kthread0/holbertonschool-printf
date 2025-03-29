@@ -6,9 +6,10 @@
 
 int _printf(const char *, ...);
 int _putchar(char);
-int _print_integers(int);
 int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(va_list args);
+int print_int(va_list args);
+int print_num(unsigned int n);
 
 #endif
