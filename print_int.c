@@ -33,7 +33,7 @@ char *int_to_str(int num)
 	num_str = malloc(sizeof(char) * (acc + 1 + isNegative));
 	if (!num_str)
 		return (NULL);
-	temp = num;
+	temp = isNegative ? -num : num;
 	num_str[acc + isNegative] = '\0';
 	for (i = acc - 1 + isNegative; i >= isNegative; i--)
 	{
