@@ -4,65 +4,37 @@
 
 int _print_double(double num)
 {
-    bool isNegative = false; /* Bool flag to handle negative numbers */
-    int whole_part = 0;  /* Separate whole from decimal part by typecasting trunc */
-    double decimal_part = 0;  /* Separates the decimal part. */
-    int temp = 0; /* Holds the  */
-    int whole_len = 0; /* holds the length of the whole part */
-    int total_len = 0; /* the entire length of the number */
-    char *str = (void *)0; /* Holds the converted number for printing */
-    int decimal_int = 0;
-    int i = 0, j = 0;
+	bool is_negative = num < 0; /* Bool flag to handle negative numbers */
+	double abs_num = is_negative ? -num : num;
+	int whole_part = abs_num; /* Whole part of the number */
+	int decimal_part = (abs_num - whole_part + 0.005) * 100; /* Separates the decimal part. */
+	int length = is_negative + 1; /* the entire length of the number +1 for the comma*/
+	char *str; /* holds the converted number for printing */
+	int i, j;
 
-    if (num < 0)
-    {
-        isNegative = true;
-        num = num * -1;
-    }
-    whole_part = (int) num;
-    decimal_part = num - whole_part;
-
-    /* Count the length of the whole part */
-    temp = whole_part;
-    if (temp == 0)
-        whole_len = 1;
-    while (temp > 0) {
-        temp = temp / 10;
-        whole_len++;
-    }
-
-    total_len += whole_len + 4; /* 4 = 2 decimal points + 1 for the comma + 1 NULL T-800 */
-
-    str = malloc(total_len);
-    if (!str)
-        return (-1);
-
-    if (isNegative)
-    {
-        str[i++] = '-';
-        total_len++;
-    }
-
-    /* converting whole_part to string */
-    for (j = whole_len - 1; j >= 0; j--)
-    {
-        str [i + j] = (whole_part % 10) + '0';
-        whole_part = whole_part / 10;
-    }
-    i = i + whole_len;
-    str[i++] = '.';
-
-    /*converting decimal_part to string */
-    decimal_part *= 100;
-    decimal_int = (int)(decimal_part + 0.5);
-    str[i++] = (decimal_int / 10) + '0';
-    str[i++] = (decimal_int % 10) + '0';
-    str[i] = '\0';
-
-    /* printing the converted double number */
-    for (j = 0; j < _strlen(str); j++)
-        _putchar(str[j]);
-
-    free(str);
-    return (total_len - 1);
+	/* Calculate whole part length */
+	for (int temp = whole_part; temp; temp /= 10)
+		length++;
+	length += 2; /* Two decimal digits */
+    str = malloc(length + 1);
+	if (!str)
+		return (-1);
+    i = 0;
+	if (is_negative)
+		str[i++] = '-';
+	j = length - 3; /* Convert whole part */
+	while (j >= is_negative)
+	{
+		str[j--] = (whole_part % 10) + '0';
+		whole_part /= 10;
+	}
+	i = length - 3;
+	str[i++] = '.';
+	str[i++] = (decimal_part / 10) % 10 + '0';
+	str[i++] = decimal_part % 10 + '0';
+	str[i] = '\0';
+    for (j = 0; str[j]; j++)
+		_putchar(str[j]);
+	free(str);
+	return (length);
 }
