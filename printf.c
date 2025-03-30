@@ -10,8 +10,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0; /* loop counter */
-	int acc = 0; /* accumulator for each printed character */
+	int i = 0, acc = 0; /* i = loop counter, acc = accumulator for each printed character */
 
 	if (!format)
 		return (EXIT_FAILURE);
@@ -36,6 +35,7 @@ int _printf(const char *format, ...)
                     /* call function for long format specifiers. */
 					break;
 				case 'd': /* double case */
+                    acc += _print_double(va_arg(args, double));
 					break;
 				case 'f': /* float case */
 					break;
