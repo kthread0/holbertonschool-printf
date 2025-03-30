@@ -1,9 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include <limits.h>
-#include <stdlib.h>
 /**
  * int_to_str - converts a given integer to string.
  * @num: the given integer.
@@ -15,14 +13,6 @@ char *int_to_str(int num)
 	int acc = 0, i = 0, temp = num, isNegative = (num < 0) ? 1 : 0;
 	char *num_str;
 
-	if (num == INT_MIN)
-	{
-		num_str = malloc(12 * sizeof(char));
-		if (!num_str)
-			return (NULL);
-		num_str = "-2147483648";
-		return (num_str);
-	}
 	if (num == 0)
 	{
 		num_str = malloc(2 * sizeof(char));
@@ -64,6 +54,16 @@ int _print_int(int num)
 	char *num_str;
 	int i, acc = 0;
 
+	if (num == INT_MIN)
+	{
+		num_str = "-2147483648";
+		for (i = 0; num_str[i] != '\0'; i++)
+		{
+			_putchar(num_str[i]);
+			acc++;
+		}
+		return (acc);
+	}
 	num_str = int_to_str(num);
 	if (!num_str)
 		return (-1);
