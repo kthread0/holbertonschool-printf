@@ -51,7 +51,11 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+<<<<<<< HEAD
 #Code::Blocks
 *.layout
 *.depend
 *.cbp
+=======
+printf
+>>>>>>> aaeb2f7 ([docs] Add documentation)
