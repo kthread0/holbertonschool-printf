@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <stdbool.h>
 /**
  * int_to_str - converts a given integer to  string.
  * @num: the given integer.
@@ -10,8 +10,10 @@
  */
 char *int_to_str(int num)
 {
-	int acc = 0, temp = num;
-	char *num_str;
+	int acc = 0; /* holds num's length */
+	int temp = num; /* used to calculate num's length */
+	int isNegative = (num < 0) ? 1 : 0;
+	char *num_str; /* num converted into string */
 	int i;
 
 	if (num == 0)
@@ -28,16 +30,18 @@ char *int_to_str(int num)
 		temp /= 10;
 		acc++;
 	}
-	num_str = malloc(sizeof(char) * (acc + 1));
+	num_str = malloc(sizeof(char) * (acc + 1 + isNegative));
 	if (!num_str)
 		return (NULL);
 	temp = num;
-	num_str[acc] = '\0';
-	for (i = acc - 1; i >= 0; i--)
+	num_str[acc + isNegative] = '\0';
+	for (i = acc - 1 + isNegative; i >= isNegative; i--)
 	{
 		num_str[i] = (temp % 10) + '0';
 		temp /= 10;
 	}
+	if (isNegative)
+		num_str[0] = '-';
 	return (num_str);
 }
 /**
