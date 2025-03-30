@@ -12,7 +12,6 @@ int _printf(const char *format, ...)
 	va_list args;
 	int i = 0; /* loop counter */
 	int acc = 0; /* accumulator for each printed character */
-	char c; /* char holder for the char case */
 
 	if (!format)
 		return (EXIT_FAILURE);
@@ -25,28 +24,21 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'c': /* chars case */
-					c = va_arg(args, int);
-					acc += _putchar(c);
+					acc += _putchar(va_arg(args, int));
 					break;
 				case 's': /* string case */
-                    _print_string(va_arg(args, char *));
+                    acc += _print_string(va_arg(args, char *));
 					break;
 				case 'i': /* integer case */
-					int num = va_arg(args, int);
-					acc += _print_int(num);
+					acc += _print_int(va_arg(args, int));
 					break;
 				case 'l': /* longs case */
                     /* call function for long format specifiers. */
 					break;
-				{
-					int num = va_arg(args, int);
-					acc += _print_int(num);
+				case 'd': /* double case */
 					break;
-				}
-//				case 'd': /* double case */
-//					break;
-//				case 'f': /* float case */
-//					break;
+				case 'f': /* float case */
+					break;
 				case '%': /* if what follows is another '%' case */
 					acc += _putchar('%');
 					break;
