@@ -22,6 +22,8 @@ int _print_double(double num)
 
     /* Count the length of the whole part */
     temp = whole_part;
+    if (temp == 0)
+        whole_len = 1;
     while (temp > 0) {
         temp = temp / 10;
         whole_len++;
@@ -43,12 +45,13 @@ int _print_double(double num)
         whole_part = whole_part / 10;
     }
     i = i + whole_len;
+    str[i++] = '.';
 
     /*converting decimal_part to string */
     for (j = 0; j < 2; j++)
     {
         decimal_part = decimal_part * 10;
-        str[i++] = ((int) decimal_part % 10) + '0';
+        str[i++] = ((int)decimal_part % 10) + '0'; /* truncate decimal part */
     }
     str[i] = '\0';
 
@@ -58,5 +61,6 @@ int _print_double(double num)
         _putchar(str[j]);
     }
 
-    return (total_len);
+    free(str);
+    return (total_len - 1);
 }
