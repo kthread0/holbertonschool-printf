@@ -11,7 +11,7 @@ int _print_string(char *str)
 	int acc = 0; /* Accumulator for printed characters */
 
 	if (!str)
-		str = "(nil)";
+		str = "(null)";
 	while (*str)
 		acc += _putchar(*str++);
 	return (acc);
