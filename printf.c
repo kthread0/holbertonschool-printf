@@ -35,15 +35,14 @@ int _printf(const char *format, ...)
                     /* call function for long format specifiers. */
 					break;
 				case 'd': /* double case */
-                    acc += _print_double(va_arg(args, double));
+                    acc += _print_int(va_arg(args, int));
 					break;
 				case 'f': /* float case */
 					break;
 				case '%': /* if what follows is another '%' case */
 					acc += _putchar('%');
 					break;
-				default:
-					/* if no viable specifier is found, print '%' and the next character */
+				default: /* if no viable specifier is found, print '%' and the next character */
 					acc += _putchar('%');
 					acc += _putchar(format[i]);
 			}

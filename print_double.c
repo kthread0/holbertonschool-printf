@@ -33,7 +33,7 @@ int _print_double(double num)
 	str[i++] = (decimal_part / 10) % 10 + '0';
 	str[i++] = decimal_part % 10 + '0';
 	str[i] = '\0';
-    for (j = 0; str[j]; j++)
+	for (j = 0; str[j]; j++)
 		_putchar(str[j]);
 	free(str);
 	return (length);
