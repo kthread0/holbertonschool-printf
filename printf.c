@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	int i = 0, acc = 0; /* acc = accumulator for each printed character */
 
 	if (!format)
-		return (EXIT_FAILURE);
+		return (-1);
 	va_start(args, format);
 	while (format[i])
 	{
