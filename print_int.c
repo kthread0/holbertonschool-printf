@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <limits.h>
+#include <stdlib.h>
 /**
  * int_to_str - converts a given integer to  string.
  * @num: the given integer.
@@ -10,11 +12,8 @@
  */
 char *int_to_str(int num)
 {
-	int acc = 0; /* holds num's length */
-	int temp = num; /* used to calculate num's length */
-	int isNegative = (num < 0) ? 1 : 0;
+	int acc = 0, i = 0, temp = num, isNegative = (num < 0) ? 1 : 0;
 	char *num_str; /* num converted into string */
-	int i;
 
 	if (num == 0)
 	{
@@ -24,6 +23,12 @@ char *int_to_str(int num)
 		num_str[0] = '0';
 		num_str[1] = '\0';
 		return (num_str);
+	}
+	if (num == INT_MIN)
+	{
+		num = INT_MIN + 1;
+		isNegative = 1;
+		acc++;
 	}
 	if (isNegative)
 		temp = -temp;
@@ -44,6 +49,8 @@ char *int_to_str(int num)
 	}
 	if (isNegative)
 		num_str[0] = '-';
+	if (num == INT_MIN + 1)
+		num_str[acc] = '8';
 	return (num_str);
 }
 /**
