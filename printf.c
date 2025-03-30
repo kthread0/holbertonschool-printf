@@ -1,6 +1,6 @@
 #include <stdarg.h>
 #include <stdlib.h>
-
+#include "main.h"
 /**
  * _printf - produces output according to a format
  * @format: format string containing the directives
@@ -9,22 +9,13 @@
  */
 int _printf(const char *format, ...)
 {
-	/* TODO: 
-	 * - Missing cases.
-	 * - Make it betty compliant.
-	 * - Implement struct function pointer to handle variadic arguments.
-	 * */
 	va_list args;
-	int i = 0; /* loop counter */
-	int acc = 0; /* accumulator for each printed character */
-	char c; /* char holder for the char case */
-	char *str; /* string holder for the string case */
+	int i = 0, acc = 0; /* i = loop counter, acc = accumulator for each printed character */
 
 	if (!format)
 		return (EXIT_FAILURE);
 	va_start(args, format);
-
-	while (format[i])
+    while (format[i])
 	{
 		if (format[i] == '%')
 		{
@@ -32,33 +23,26 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'c': /* chars case */
-				{
-					c = va_arg(args, int);
-					acc += _putchar(c);
+					acc += _putchar(va_arg(args, int));
 					break;
-				}
 				case 's': /* string case */
-				{
-					str = va_arg(args, char *);
-					while (*str)
-						acc += _putchar(*str++);
+                    acc += _print_string(va_arg(args, char *));
 					break;
-				}
 				case 'i': /* integer case */
-				{
-					int num = va_arg(args, int);
-					acc += print_number(num);
+					acc += _print_int(va_arg(args, int));
 					break;
-				}
+				case 'l': /* longs case */
+                    /* call function for long format specifiers. */
+					break;
 				case 'd': /* double case */
+                    acc += _print_int(va_arg(args, int));
 					break;
 				case 'f': /* float case */
 					break;
 				case '%': /* if what follows is another '%' case */
 					acc += _putchar('%');
 					break;
-				default:
-					/* if no viable specifier is found, print '%' and the next character */
+				default: /* if no viable specifier is found, print '%' and the next character */
 					acc += _putchar('%');
 					acc += _putchar(format[i]);
 			}
