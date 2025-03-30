@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include "main.h"
+
 /**
  * _printf - produces output according to a format
  * @format: format string containing the directives
@@ -19,35 +20,29 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			i++;
-			switch (format[i])
+			switch (format[++i])
 			{
-				case 'c': /* chars case */
+				case 'c':
 					acc += _putchar(va_arg(args, int));
 					break;
-				case 's': /* string case */
+				case 's':
 					acc += _print_string(va_arg(args, char *));
 					break;
-				case 'i': /* integer case */
+				case 'i':
 					acc += _print_int(va_arg(args, int));
 					break;
-				case 'l': /* longs case */
-					/* call function for long format specifiers. */
-					break;
-				case 'd': /* double case */
+				case 'd':
 					acc += _print_int(va_arg(args, int));
 					break;
-				case 'f': /* float case */
-					break;
-				case '%': /* if what follows is another '%' case */
+				case '%':
 					acc += _putchar('%');
 					break;
-				default: /* if no viable specifier is found, print '%' and next char */
+				default:
 					acc += _putchar('%');
 					acc += _putchar(format[i]);
 			}
 		}
-		else /* if no '%' if found, just print the current character. */
+		else
 			acc += _putchar(format[i]);
 		i++;
 	}
