@@ -25,6 +25,8 @@ char *int_to_str(int num)
 		num_str[1] = '\0';
 		return (num_str);
 	}
+	if (isNegative)
+		temp = -temp;
 	while (temp > 0)
 	{
 		temp /= 10;
@@ -57,7 +59,7 @@ int _print_int(int num)
 
 	num_str = int_to_str(num);
 	if (!num_str)
-		return (EXIT_FAILURE);
+		return (-1);
 	for (i = 0; num_str[i] != '\0'; i++)
 	{
 		_putchar(num_str[i]);
