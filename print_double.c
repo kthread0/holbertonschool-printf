@@ -9,11 +9,12 @@ int _print_double(double num)
 	int whole_part = abs_num; /* Whole part of the number */
 	int decimal_part = (abs_num - whole_part + 0.005) * 100; /* Separates the decimal part. */
 	int length = is_negative + 1; /* the entire length of the number +1 for the comma*/
+	int temp = 0;
 	char *str; /* holds the converted number for printing */
 	int i, j;
 
 	/* Calculate whole part length */
-	for (int temp = whole_part; temp; temp /= 10)
+	for (temp = whole_part; temp; temp /= 10)
 		length++;
 	length += 2; /* Two decimal digits */
     str = malloc(length + 1);

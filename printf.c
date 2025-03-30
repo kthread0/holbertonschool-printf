@@ -10,12 +10,12 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0, acc = 0; /* i = loop counter, acc = accumulator for each printed character */
+	int i = 0, acc = 0; /* acc = accumulator for each printed character */
 
 	if (!format)
 		return (EXIT_FAILURE);
 	va_start(args, format);
-    while (format[i])
+	while (format[i])
 	{
 		if (format[i] == '%')
 		{
@@ -26,23 +26,23 @@ int _printf(const char *format, ...)
 					acc += _putchar(va_arg(args, int));
 					break;
 				case 's': /* string case */
-                    acc += _print_string(va_arg(args, char *));
+					acc += _print_string(va_arg(args, char *));
 					break;
 				case 'i': /* integer case */
 					acc += _print_int(va_arg(args, int));
 					break;
 				case 'l': /* longs case */
-                    /* call function for long format specifiers. */
+					/* call function for long format specifiers. */
 					break;
 				case 'd': /* double case */
-                    acc += _print_int(va_arg(args, int));
+					acc += _print_int(va_arg(args, int));
 					break;
 				case 'f': /* float case */
 					break;
 				case '%': /* if what follows is another '%' case */
 					acc += _putchar('%');
 					break;
-				default: /* if no viable specifier is found, print '%' and the next character */
+				default: /* if no viable specifier is found, print '%' and next char */
 					acc += _putchar('%');
 					acc += _putchar(format[i]);
 			}
