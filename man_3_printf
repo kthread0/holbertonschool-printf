@@ -1,0 +1,81 @@
+.TH _PRINTF 1 "March 30, 2025" "Version 1.0" "User Commands"
+.SH NAME
+_printf \- produce output according to a format
+
+.SH SYNOPSIS
+.B #include <stdarg.h>
+.B #include <stdlib.h>
+.B #include "main.h"
+
+.B int _printf(const char *format, ...);
+
+.SH DESCRIPTION
+.B _printf
+produces output according to a format as specified by the format string. The format string contains directives that are replaced by the values specified in subsequent arguments, which are passed using the `va_list` type.
+
+The function will iterate over the format string, handle each directive, and print the corresponding values. Supported directives include:
+.TP
+.B %c
+Prints a character, which is an integer argument interpreted as a character.
+.TP
+.B %s
+Prints a string of characters (null-terminated).
+.TP
+.B %i or %d
+Prints an integer in decimal format.
+.TP
+.B %%
+Prints a literal '%' character.
+
+.SH PARAMETERS
+.TP
+.B format
+A format string containing zero or more directives.
+
+.SH RETURN VALUE
+The function returns the number of characters printed (excluding the null byte used to end output to strings). If an error occurs (e.g., if a directive is invalid), it returns \-1.
+
+.SH FUNCTIONS
+.TP
+.B int handle_cases(const char *format, va_list args)
+Handles the format specifiers for the \fB_printf\fP function. It processes the format string and prints the corresponding values from the `va_list`.
+
+.TP
+.B int _putchar(char c)
+Prints a single character to the standard output.
+
+.TP
+.B int _print_int(int num)
+Prints an integer in decimal format.
+
+.TP
+.B int _print_string(char *str)
+Prints a string of characters (null-terminated).
+
+.SH EXAMPLES
+Here is an example usage of the \fB_printf\fP function:
+
+.nf
+#include "main.h"
+
+int main(void)
+{
+    _printf("Hello, World!\n");
+    _printf("Character: %c\n", 'H');
+    _printf("String: %s\n", "Holberton");
+    _printf("Integer: %d\n", 42);
+
+    return (0);
+}
+.fi
+
+.SH SEE ALSO
+.BR printf (1), 
+.BR va_list (3)
+
+.SH AUTHORS
+Written by Holberton students Martin Olivera and Gabriel Barnada.
+
+.SH COPYRIGHT
+There's no such thing as copyright, use it for free.
+
