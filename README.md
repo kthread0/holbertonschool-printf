@@ -56,6 +56,8 @@ The implementation likely supports these common format specifiers:
 
 ## How It Works
 
+![Flowchart](https://raw.githubusercontent.com/unixpup/holbertonschool-printf/refs/heads/main/printf_flowchart.png)
+
 1. The function receives a format string and a variable number of arguments
 2. It traverses the format string character by character
 3. When it encounters a regular character, it outputs it directly
